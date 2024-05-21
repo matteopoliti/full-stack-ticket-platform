@@ -15,8 +15,6 @@ return new class extends Migration
 
         Schema::create('tickets', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('operator_id');
-            $table->foreign('operator_id')->references('id')->on('operators')->cascadeOnDelete();
             $table->enum('stato', ["ASSEGNATO", "IN LAVORAZIONE", "CHIUSO"]);
             $table->string('titolo', 100);
             $table->string('slug');
