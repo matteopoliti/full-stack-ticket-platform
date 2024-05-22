@@ -21,15 +21,15 @@
                     <tr>
                         <th scope="row">{{ $item->id }}</th>
 
-                        {{-- <td><a href="{{ route('dashboard.projects.show', $item->slug) }}">{{ $item->title }}</a></td> --}}
                         <td>{{ $item->stato }}</td>
-                        <td>{{ $item->titolo }}</td>
+                        <td><a href="{{ route('dashboard.tickets.show', $item->slug) }}">{{ $item->titolo }}</a></td>
+                        {{-- <td>{{ $item->titolo }}</td> --}}
                         <td>{{ $item->descrizione }}</td>
                         <td>{{ $item->categoria }}</td>
                         {{-- <td class="d-flex gap-2 ">
-                            <a href="{{ route('dashboard.projects.edit', $item->slug) }}" class="btn btn-primary">Edit</a>
+                            <a href="{{ route('dashboard.tickets.edit', $item->slug) }}" class="btn btn-primary">Edit</a>
 
-                            <form action="{{ route('dashboard.projects.destroy', $item->slug) }}" method="POST">
+                            <form action="{{ route('dashboard.tickets.destroy', $item->slug) }}" method="POST">
                                 @csrf
 
                                 @method('DELETE')

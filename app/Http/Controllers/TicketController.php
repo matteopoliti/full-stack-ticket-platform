@@ -53,7 +53,7 @@ class TicketController extends Controller
      */
     public function show(Ticket $ticket)
     {
-        //
+        return view('pages.tickets.show', compact('ticket'));
     }
 
     /**
