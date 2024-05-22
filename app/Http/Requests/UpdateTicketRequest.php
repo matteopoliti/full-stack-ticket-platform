@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
 
 class UpdateTicketRequest extends FormRequest
 {
@@ -11,7 +12,7 @@ class UpdateTicketRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -22,7 +23,11 @@ class UpdateTicketRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'titolo' => ['required', 'string', 'max:100'],
+            'descrizione' => ['nullable'],
+            'stato' => ['required', Rule::in(["ASSEGNATO", "IN LAVORAZIONE", "CHIUSO"])],
+            'operator_id' => ['required', 'exists:operators,id'],
+            'categoria' => ['required']
         ];
     }
 }

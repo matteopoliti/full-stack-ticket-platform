@@ -61,7 +61,12 @@ class TicketController extends Controller
      */
     public function edit(Ticket $ticket)
     {
-        //
+
+        $operators = Operator::all();
+
+        $stato_tickets = ["ASSEGNATO", "IN LAVORAZIONE", "CHIUSO"];
+
+        return view('pages.tickets.edit', compact('ticket', 'operators', 'stato_tickets'));
     }
 
     /**
@@ -69,7 +74,15 @@ class TicketController extends Controller
      */
     public function update(UpdateTicketRequest $request, Ticket $ticket)
     {
-        //
+        $val_data = $request->validated();
+
+
+        $slug = Str::slug($request->titolo, '-');
+        $val_data['slug'] = $slug;
+
+        $ticket->update($val_data);
+
+        return redirect()->route('dashboard.tickets.index');
     }
 
     /**

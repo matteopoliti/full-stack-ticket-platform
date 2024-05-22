@@ -13,7 +13,7 @@
                     <th scope="col">Titolo</th>
                     <th scope="col">Descrizione</th>
                     <th scope="col">Categoria</th>
-                    <th>Actions</th>
+                    <th>Modifica</th>
                 </tr>
             </thead>
             <tbody>
@@ -22,21 +22,23 @@
                         <th scope="row">{{ $item->id }}</th>
 
                         <td>{{ $item->stato }}</td>
-                        <td><a href="{{ route('dashboard.tickets.show', $item->slug) }}">{{ $item->titolo }}</a></td>
+                        <td><a href="{{ route('dashboard.tickets.show', $item->slug) }}"
+                                class="btn btn-outline-secondary">{{ $item->titolo }}</a></td>
                         {{-- <td>{{ $item->titolo }}</td> --}}
                         <td>{{ $item->descrizione }}</td>
                         <td>{{ $item->categoria }}</td>
-                        {{-- <td class="d-flex gap-2 ">
-                            <a href="{{ route('dashboard.tickets.edit', $item->slug) }}" class="btn btn-primary">Edit</a>
+                        <td class="">
+                            <a href="{{ route('dashboard.tickets.edit', $item->slug) }}"
+                                class="btn btn-outline-warning">Modifica</a>
 
-                            <form action="{{ route('dashboard.tickets.destroy', $item->slug) }}" method="POST">
+                            {{-- <form action="{{ route('dashboard.tickets.destroy', $item->slug) }}" method="POST">
                                 @csrf
 
                                 @method('DELETE')
 
                                 <button type="submit" class="btn btn-danger">Delete</button>
-                            </form>
-                        </td> --}}
+                            </form> --}}
+                        </td>
                     </tr>
                 @endforeach
             </tbody>
