@@ -4,7 +4,7 @@
     <main class="container py-3">
         <h1 class="text-success">Projects List</h1>
 
-        {{-- <a href="{{ route('dashboard.projects.create') }}" class="btn btn-primary">+ Create new project</a> --}}
+        <a href="{{ route('dashboard.tickets.create') }}" class="btn btn-primary">+ Create new project</a>
         <table class="table">
             <thead>
                 <tr>
