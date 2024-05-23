@@ -25,7 +25,16 @@ class TicketController extends Controller
      */
     public function create()
     {
-        $operators = Operator::all();
+        $operators = Operator::leftJoin('tickets', function ($join) {
+            $join->on('operators.id', '=', 'tickets.operator_id')
+                ->where(function ($query) {
+                    $query->where('tickets.stato', '=', 'ASSEGNATO')
+                        ->orWhere('tickets.stato', '=', 'IN LAVORAZIONE');
+                });
+        })
+            ->whereNull('tickets.operator_id')
+            ->select('operators.*')
+            ->get();
 
         $stato_tickets = ["ASSEGNATO", "IN LAVORAZIONE", "CHIUSO"];
 
@@ -62,11 +71,10 @@ class TicketController extends Controller
     public function edit(Ticket $ticket)
     {
 
-        $operators = Operator::all();
 
         $stato_tickets = ["ASSEGNATO", "IN LAVORAZIONE", "CHIUSO"];
 
-        return view('pages.tickets.edit', compact('ticket', 'operators', 'stato_tickets'));
+        return view('pages.tickets.edit', compact('ticket', 'stato_tickets'));
     }
 
     /**
