@@ -4,8 +4,8 @@
     <main class="container py-3">
         <h1 class="text-danger">Ticket List</h1>
 
-        <a href="{{ route('dashboard.tickets.create') }}" class="btn btn-outline-primary">+ New Ticket</a>
-        <table class="table">
+
+        <table class="table table-striped">
             <thead>
                 <tr>
 

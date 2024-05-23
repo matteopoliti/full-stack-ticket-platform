@@ -40,7 +40,7 @@
                             </g>
                         </svg>
                     </div>
-                    
+
                 </a>
 
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
@@ -52,7 +52,7 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav me-auto">
-                        
+
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('dashboard.tickets.index') }}">{{ __('Tickets') }}</a>
                         </li>
@@ -110,17 +110,14 @@
                 </div>
 
                 <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
-                    <li class="nav-item">
-                        <a class="nav-link text-dark"
-                            href="{{ route('dashboard.tickets.index') }}">{{ __('Tickets') }}</a>
-                    </li>
+
                     @guest
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                            <a class="nav-link text-dark " href="{{ route('login') }}">{{ __('Login') }}</a>
                         </li>
                         @if (Route::has('register'))
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                                <a class="nav-link text-dark" href="{{ route('register') }}">{{ __('Register') }}</a>
                             </li>
                         @endif
                     @else
@@ -147,11 +144,7 @@
                     @endguest
                 </ul>
 
-                <div class="col-md-3 text-end">
-                    <a href="{{ route('dashboard.tickets.create') }}" class="btn btn-outline-primary"><i
-                            class="fa-solid fa-plus"></i> <span class="d-none d-md-inline">New
-                            Ticket</span></a>
-                </div>
+
             </header>
         </div>
 
