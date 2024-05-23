@@ -77,8 +77,8 @@ class TicketController extends Controller
         $val_data = $request->validated();
 
 
-        $slug = Str::slug($request->titolo, '-');
-        $val_data['slug'] = $slug;
+        // $slug = Str::slug($request->titolo, '-');
+        // $val_data['slug'] = $slug;
 
         $ticket->update($val_data);
 
