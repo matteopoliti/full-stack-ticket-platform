@@ -43,6 +43,22 @@
                 </select>
             </div>
 
+            {{-- categories --}}
+            <div class="mb-3">
+                <label for="category_id" class="form-label">Categorie *</label>
+                <select
+                    class="form-select @error('category_id')
+                    is-invalid
+                    @enderror"
+                    name="category_id" id="category_id">
+                    <option>Seleziona uno</option>
+                    @foreach ($categories as $item)
+                        <option value="{{ $item->id }}" {{ $item->id == old('category_id') ? 'selected' : '' }}>
+                            {{ $item->name }}</option>
+                    @endforeach
+                </select>
+            </div>
+
             {{-- Stato --}}
             <div class="mb-3">
                 <label for="stato" class="form-label">Stato *</label>
@@ -60,10 +76,6 @@
             </div>
 
 
-            <div class="mb-3">
-                <label for="categoria" class="form-label">Categoria *</label>
-                <input type="text" class="form-control" id="categoria" name="categoria">
-            </div>
 
 
 

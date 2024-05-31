@@ -27,7 +27,7 @@ class StoreTicketRequest extends FormRequest
             'descrizione' => ['nullable'],
             'stato' => ['required', Rule::in(["ASSEGNATO", "IN LAVORAZIONE", "CHIUSO"])],
             'operator_id' => ['required', 'exists:operators,id'],
-            'categoria' => ['required']
+            'category_id' => ['required', 'exists:operators,id']
         ];
     }
 }

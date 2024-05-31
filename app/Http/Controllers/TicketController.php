@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Ticket;
 use App\Http\Requests\StoreTicketRequest;
 use App\Http\Requests\UpdateTicketRequest;
+use App\Models\Category;
 use App\Models\Operator;
 use Illuminate\Support\Str;
 
@@ -38,7 +39,9 @@ class TicketController extends Controller
 
         $stato_tickets = ["ASSEGNATO", "IN LAVORAZIONE", "CHIUSO"];
 
-        return view('pages.tickets.create', compact('operators', 'stato_tickets'));
+        $categories = Category::all();
+
+        return view('pages.tickets.create', compact('operators', 'stato_tickets', 'categories'));
     }
 
     /**
