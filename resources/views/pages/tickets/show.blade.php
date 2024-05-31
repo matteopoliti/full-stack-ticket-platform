@@ -17,7 +17,7 @@
             <p><strong>Descrizione:</strong> {{ $ticket->descrizione }}</p>
         @endif
 
-        <p><strong>Categoria:</strong> {{ $ticket->category->name }}</p>
+        <p><strong>Categoria:</strong> {{ $ticket->category->name }} <i class="{{ $ticket->category->icon }}"></i></p>
 
     </main>
 @endsection
