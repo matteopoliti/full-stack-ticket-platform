@@ -13,6 +13,7 @@ class Ticket extends Model
     protected $fillable = [
         'id',
         'operator_id',
+        'category_id',
         'stato',
         'titolo',
         'slug',
@@ -23,5 +24,10 @@ class Ticket extends Model
     public function operator(): BelongsTo
     {
         return $this->belongsTo(Operator::class);
+    }
+
+    public function category(): BelongsTo
+    {
+        return $this->belongsTo(Category::class);
     }
 }
