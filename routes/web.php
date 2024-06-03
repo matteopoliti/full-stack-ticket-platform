@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\TicketController;
 use Illuminate\Support\Facades\Route;
@@ -32,6 +33,11 @@ Route::middleware('auth')->group(function () {
 Route::middleware('auth')->prefix('dashboard')->name('dashboard.')->group(function () {
 
     Route::resource('tickets', TicketController::class)->parameters(['tickets' => 'ticket:slug']);
+});
+
+Route::middleware('auth')->prefix('dashboard')->name('dashboard.')->group(function () {
+
+    Route::resource('categories', CategoryController::class);
 });
 
 require __DIR__ . '/auth.php';

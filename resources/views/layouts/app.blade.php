@@ -98,7 +98,7 @@
         </nav> --}}
         <div class="container-fluid">
             <header
-                class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom">
+                class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 border-bottom">
                 <div class="col-md-3 mb-2 mb-md-0 d-flex align-items-center">
                     <a href="{{ route('dashboard.tickets.index') }}"
                         class="d-inline-flex link-body-emphasis text-decoration-none">
@@ -114,6 +114,11 @@
                         <a class="nav-link text-dark"
                             href="{{ route('dashboard.tickets.index') }}">{{ __('Tickets') }}</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-dark"
+                            href="{{ route('dashboard.categories.index') }}">{{ __('Categorie') }}</a>
+                    </li>
+
                     @guest
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
@@ -149,7 +154,7 @@
 
                 <div class="col-md-3 text-end">
                     <a href="{{ route('dashboard.tickets.create') }}" class="btn btn-outline-primary"><i
-                            class="fa-solid fa-plus"></i> <span class="d-none d-md-inline">New
+                            class="fa-solid fa-plus"></i> <span class="d-none d-md-inline">Nuovo
                             Ticket</span></a>
                 </div>
             </header>

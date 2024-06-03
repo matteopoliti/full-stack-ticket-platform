@@ -1,9 +1,26 @@
 @import '~bootstrap/scss/bootstrap';
 
+//access layout
 .jumbotron{
     background-image: url('../img/back-ticket.jpg');
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
     height: 700px;
+}
+
+
+//category page
+.icon-circle {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 4rem;
+    height: 4rem;
+    border-radius: 50%;
+}
+
+.bg-pastel-primary {
+    background-color: #e9f3ff !important;
 }
