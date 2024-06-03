@@ -1,10 +1,10 @@
 @extends('layouts.app')
 
 @section('content')
-    <main class="pt-3 px-5 bg-secondary-subtle">
+    <main class="pt-3 px-5 bg-secondary-subtle vh-100">
         <h1>Categorie disponibili</h1>
 
-        <div class="row mt-5">
+        <div class="row my-5">
 
             @foreach ($categories as $item)
                 <div class="col-lg-4 col-md-6 mb-4">
@@ -20,6 +20,11 @@
                     </a>
                 </div>
             @endforeach
+
+        </div>
+
+        <div class="d-flex justify-content-center">
+            {{ $categories->links() }}
         </div>
     </main>
 @endsection
