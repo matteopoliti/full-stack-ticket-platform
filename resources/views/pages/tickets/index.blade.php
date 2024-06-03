@@ -1,8 +1,8 @@
 @extends('layouts.app')
 
 @section('content')
-    <main class="container py-3">
-        <h1 class="text-danger">Ticket List</h1>
+    <main class="pt-3 px-5">
+        <h1 class="text-danger">Lista Tickets</h1>
 
 
         <table class="table table-striped">
