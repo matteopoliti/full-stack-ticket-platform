@@ -10,6 +10,7 @@
                 <tr>
 
                     <th scope="col">Titolo</th>
+                    <th scope="col">Data Creazione</th>
                     <th scope="col">Stato</th>
                     <th>Modifica Stato</th>
                 </tr>
@@ -22,6 +23,7 @@
                                 class="link-secondary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">{{ $item->titolo }}</a>
                         </td>
                         {{-- <td>{{ $item->titolo }}</td> --}}
+                        <td>{{ $item->created_at }}</td>
                         <td>{{ $item->stato }}</td>
                         <td class="">
                             <a href="{{ route('dashboard.tickets.edit', $item->slug) }}"
