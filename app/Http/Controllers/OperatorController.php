@@ -12,7 +12,9 @@ class OperatorController extends Controller
      */
     public function index()
     {
-        //
+        $operators = Operator::paginate(6);
+
+        return view('pages.operators.index', compact('operators'));
     }
 
     /**

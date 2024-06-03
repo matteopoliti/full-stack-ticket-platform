@@ -109,14 +109,18 @@
                     </a>
                 </div>
 
-                <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
+                <ul class="nav col-12 col-md-auto mb-2 justify-content-center gap-5 mb-md-0">
                     <li class="nav-item">
-                        <a class="nav-link text-dark"
-                            href="{{ route('dashboard.tickets.index') }}">{{ __('Tickets') }}</a>
+                        <a class="nav-link text-dark fs-4"
+                            href="{{ route('dashboard.tickets.index') }}">{{ __('TICKETS') }}</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-dark"
-                            href="{{ route('dashboard.categories.index') }}">{{ __('Categorie') }}</a>
+                        <a class="nav-link text-dark fs-4"
+                            href="{{ route('dashboard.categories.index') }}">{{ __('CATEGORIE') }}</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-dark fs-4"
+                            href="{{ route('dashboard.operators.index') }}">{{ __('OPERATORI') }}</a>
                     </li>
 
                     @guest
@@ -130,8 +134,9 @@
                         @endif
                     @else
                         <li class="nav-item dropdown">
-                            <a id="navbarDropdown" class="nav-link dropdown-toggle text-dark" href="#" role="button"
-                                data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                            <a id="navbarDropdown" class="nav-link dropdown-toggle text-dark text-uppercase fs-4"
+                                href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true"
+                                aria-expanded="false" v-pre>
                                 {{ Auth::user()->name }}
                             </a>
 
