@@ -28,4 +28,38 @@ class UserController extends Controller
             'operators' => $operators,
         ]);
     }
+
+    public function filter(Request $request)
+    {
+        $query = Ticket::with('operator', 'category');
+
+        // Filtra per categoria se presente nella richiesta
+        if ($request->filled('category')) {
+            $query->whereHas('category', function ($q) use ($request) {
+                $q->where('name', $request->input('category'));
+            });
+        }
+        // Filtra per operatore se presente nella richiesta
+        if ($request->filled('operator')) {
+            $query->whereHas('operator', function ($q) use ($request) {
+                $q->where('name', $request->input('operator'));
+            });
+        }
+
+        // Filtra per data se presente nella richiesta
+        if ($request->filled('date')) {
+            $query->whereDate('created_at', '>=', $request->input('date'));
+        }
+
+        $tickets = $query->paginate(6);
+
+        foreach ($query as $ticket) {
+            $ticket->created_at_formatted = Carbon::parse($ticket->created_at)->format('Y-m-d H:i');
+        }
+
+        return response()->json([
+            'success' => true,
+            'result'  => $tickets
+        ]);
+    }
 }

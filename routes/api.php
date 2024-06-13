@@ -20,3 +20,5 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 Route::get('/tickets', [UserController::class, 'index']);
+
+Route::get('/tickets/search', [UserController::class, 'filter']);
