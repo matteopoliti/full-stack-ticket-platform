@@ -34,6 +34,11 @@ class UserController extends Controller
         $query = Ticket::with('operator', 'category');
 
         // Filtra per categoria se presente nella richiesta
+        if ($request->filled('search')) {
+            $query->where('titolo', 'like', '%' . $request->input('search') . '%');
+        }
+
+        // Filtra per categoria se presente nella richiesta
         if ($request->filled('category')) {
             $query->whereHas('category', function ($q) use ($request) {
                 $q->where('name', $request->input('category'));
